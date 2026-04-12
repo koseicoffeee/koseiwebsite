@@ -1,0 +1,382 @@
+/* =========================================
+   1. POLICES & VARIABLES
+   ========================================= */
+@font-face { 
+    font-family: 'Kobe'; 
+    src: url('./font/Kobe-Font/kobe-regular.otf'); 
+}
+@font-face { 
+    font-family: 'Kobe'; 
+    src: url('./font/Kobe-Font/kobe-bold.otf'); 
+    font-weight: bold; 
+}
+@font-face { 
+    font-family: 'Kobe'; 
+    src: url('./font/Kobe-Font/kobe-black.otf'); 
+    font-weight: 900; 
+}
+
+:root { 
+    --bg-beige: #e5e4d3; 
+    --accent-pourpre: #6A4E7A; 
+    --accent-vert: #9dae8f;
+    --text-dark: #2c2a29; 
+}
+
+/* =========================================
+   2. RESET & BASE
+   ========================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Kobe', sans-serif; color: var(--text-dark); background: var(--bg-beige); scroll-behavior: smooth; overflow-x: hidden; position: relative; }
+
+/* =========================================
+   3. ARRIÈRE-PLAN : FORMES ORGANIQUES (MOTIFS MOBILES)
+   ========================================= */
+.background-blobs {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+.blob {
+    position: absolute;
+    opacity: 0.2; 
+    animation: morph 8s ease-in-out infinite alternate;
+}
+.organic-blob-1 {
+    width: 600px; height: 600px;
+    background-color: var(--accent-pourpre);
+    top: -150px; left: -200px;
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+}
+.organic-blob-2 {
+    width: 500px; height: 500px;
+    background-color: var(--accent-vert);
+    bottom: -100px; right: -150px;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    animation-delay: 2s;
+    animation-direction: alternate-reverse;
+}
+.organic-blob-3 {
+    width: 400px; height: 400px;
+    background-color: #d4d3bd;
+    top: 40%; left: 60%;
+    border-radius: 30% 70% 50% 50% / 50% 50% 70% 30%;
+    animation-delay: 4s;
+}
+
+@keyframes morph {
+    0% { border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%; transform: translate(0, 0) rotate(0deg); }
+    34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; transform: translate(30px, 40px) rotate(5deg); }
+    67% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; transform: translate(-20px, 20px) rotate(-5deg); }
+    100% { border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%; transform: translate(0, 0) rotate(0deg); }
+}
+
+/* =========================================
+   4. HEADER & NAVBAR (STYLE PREMIUM)
+   ========================================= */
+.top-logo-container { 
+    display: flex; 
+    justify-content: center; 
+    padding: 40px; 
+    background: var(--bg-beige); 
+    position: relative; 
+    z-index: 1; 
+}
+
+.main-logo-circular { height: 120px; transition: transform 0.3s ease; }
+.main-logo-circular:hover { transform: scale(1.05); }
+
+.navbar { 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; 
+    background: var(--bg-beige); 
+    padding: 20px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); 
+}
+
+.nav-links { 
+    display: flex; 
+    justify-content: center; 
+    gap: 45px; 
+    list-style: none; 
+}
+
+.nav-links a { 
+    text-decoration: none; 
+    color: var(--text-dark); 
+    font-weight: 900; 
+    text-transform: uppercase; 
+    font-size: 1.1rem; 
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0; 
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--accent-pourpre);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: translateX(-50%); 
+}
+
+.nav-links a:hover {
+    color: var(--accent-pourpre);
+}
+
+.nav-links a:hover::after {
+    width: 100%; 
+}
+
+/* =========================================
+   5. HERO BANNER
+   ========================================= */
+.hero { height: 60vh; background: url('https://images.unsplash.com/photo-1490818387583-1b5ba45227fa?auto=format&fit=crop&w=1500') no-repeat center center; background-attachment: fixed; background-size: cover; display: flex; align-items: center; justify-content: center; position: relative; }
+.hero::before { content: ''; position: absolute; inset: 0; background: rgba(229, 228, 211, 0.5); }
+.hero h1 { position: relative; font-size: 4rem; font-weight: 900; line-height: 0.9; text-align: center; color: var(--text-dark); }
+
+/* =========================================
+   6. SECTIONS GÉNÉRALES
+   ========================================= */
+section { padding: 80px 20px; text-align: center; position: relative; z-index: 1;}
+h2 { font-size: 3rem; margin-bottom: 40px; text-transform: uppercase; font-weight: 900; }
+.text-container { max-width: 800px; margin: 0 auto; font-size: 1.3rem; line-height: 1.7; }
+.text-container p { margin-bottom: 25px; }
+.text-container strong { color: var(--accent-pourpre); font-weight: 900; }
+.section-mauve { background-color: var(--accent-pourpre); color: white; border-radius: 80px 0; margin: 0 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+
+/* =========================================
+   7. LE MENU (EFFETS INTERACTIFS PREMIUM)
+   ========================================= */
+.menu-accordion { background: rgba(255, 255, 255, 0.08); margin-bottom: 15px; border-radius: 25px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); transition: all 0.4s ease; max-width: 1100px; margin-left: auto; margin-right: auto; }
+.menu-accordion:hover { background: rgba(255, 255, 255, 0.15); }
+.menu-accordion summary { list-style: none; padding: 30px; font-size: 1.6rem; font-weight: 900; cursor: pointer; position: relative; text-transform: uppercase; letter-spacing: 1px; }
+.menu-accordion summary::after { content: '+'; position: absolute; right: 30px; font-size: 2rem; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.menu-accordion[open] summary::after { transform: rotate(135deg); }
+.accordion-content { padding: 10px 40px 40px; text-align: left; animation: slideDown 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; transform-origin: top; }
+
+@keyframes slideDown { from { opacity: 0; transform: translateY(-15px); } to { opacity: 1; transform: translateY(0); } }
+
+.menu-grid { display: flex; flex-wrap: wrap; gap: 40px; }
+.menu-col { flex: 1; min-width: 280px; }
+.menu-subtitle { font-size: 1.2rem; text-transform: uppercase; font-weight: 900; margin-bottom: 15px; padding-bottom: 5px; border-bottom: 1px solid rgba(255,255,255,0.2); opacity: 0.9;}
+
+/* Lignes du menu interactives SANS DÉCALAGE */
+.menu-item { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    font-weight: bold; 
+    margin-bottom: 12px; 
+    text-transform: uppercase; 
+    padding: 15px 20px; 
+    border-radius: 15px;
+    background: transparent;
+    border-bottom: 1px solid rgba(255,255,255,0.1); 
+    transition: all 0.3s ease; 
+}
+
+.menu-item:hover {
+    background: white; 
+    color: var(--accent-pourpre); 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+    border-bottom-color: transparent;
+    transform: translateY(-2px); 
+}
+
+/* Bouton pour le prix */
+.menu-item span:last-child { 
+    font-weight: 900; 
+    font-size: 1.2rem;
+    background: rgba(0,0,0,0.2); 
+    padding: 6px 15px;
+    border-radius: 30px;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.menu-item:hover span:last-child {
+    background: var(--accent-pourpre); 
+    color: white;
+}
+
+/* ENCART BOOST */
+.premium-boost {
+    background: white; 
+    color: var(--text-dark);
+    padding: 25px;
+    border-radius: 20px;
+    margin-top: 30px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s ease;
+    border: 3px solid var(--accent-pourpre);
+}
+.premium-boost:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+.premium-boost h4 {
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent-pourpre);
+    border-bottom: 2px dashed rgba(106, 78, 122, 0.3); 
+    padding-bottom: 15px;
+}
+.boost-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+.boost-name small {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--accent-pourpre);
+    margin-top: 5px;
+    text-transform: none;
+}
+.boost-price {
+    background: var(--accent-pourpre);
+    color: white;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-weight: 900;
+}
+
+/* =========================================
+   8. CONTACT & MAPS
+   ========================================= */
+.insta-link { display: inline-block; margin-top: 15px; font-size: 1.3rem; font-weight: 900; color: var(--text-dark); text-decoration: none; border-bottom: 3px solid var(--accent-pourpre); padding-bottom: 2px; transition: 0.3s; }
+.insta-link:hover { color: var(--accent-pourpre); transform: translateY(-3px); }
+.opening-soon { font-weight: 900; color: var(--accent-pourpre); letter-spacing: 2px; margin: 20px 0; }
+.map-container { max-width: 900px; margin: 30px auto; border-radius: 25px; overflow: hidden; border: 3px solid var(--text-dark); }
+
+/* =========================================
+   9. LES COPAINS (DESIGN "PILULE" PREMIUM)
+   ========================================= */
+.copains-container { 
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+    flex-wrap: wrap; 
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.copain-pill { 
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 260px;
+    height: 110px;
+    background: transparent; 
+    border: 2px solid var(--accent-pourpre); 
+    border-radius: 60px; 
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+}
+
+.copain-pill:hover { 
+    background: var(--accent-pourpre); 
+    transform: translateY(-8px) scale(1.02); 
+    box-shadow: 0 15px 25px rgba(106, 78, 122, 0.3); 
+}
+
+.copain-role { 
+    font-size: 0.75rem; 
+    font-weight: bold; 
+    color: var(--accent-pourpre); 
+    text-transform: uppercase; 
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    transition: 0.3s;
+}
+
+.copain-pill:hover .copain-role { 
+    color: var(--bg-beige); 
+}
+
+.copain-name { 
+    font-weight: 900; 
+    font-size: 1.4rem; 
+    text-transform: uppercase;
+    color: var(--text-dark);
+    transition: 0.3s;
+}
+
+.copain-pill:hover .copain-name {
+    color: white;
+}
+
+/* =========================================
+   10. MOBILE (RESPONSIVE)
+   ========================================= */
+@media (max-width: 768px) { 
+    .hero h1 { font-size: 2.5rem; } 
+    h2 { font-size: 2rem; } 
+    
+    /* Ajustement de la navbar sur mobile */
+    .nav-links { gap: 15px; flex-wrap: wrap; }
+    .nav-links a { font-size: 0.9rem; }
+    
+    .menu-col { min-width: 100%; } 
+    .menu-item { padding: 12px 15px; flex-direction: column; align-items: flex-start; gap: 8px;}
+    .main-logo-circular { height: 90px; } 
+    .menu-accordion summary { font-size: 1.3rem; padding: 20px;}
+    .accordion-content { padding: 10px 20px 20px;}
+    .copain-pill { width: 45%; height: 90px; border-radius: 50px;}
+    .copain-name { font-size: 1.1rem;}
+    .copain-role { font-size: 0.65rem;}
+}
+
+/* =========================================
+   11. PAGE DE TRANSITION (SPLASH SCREEN)
+   ========================================= */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-beige); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; 
+    animation: hideSplash 2.8s ease-in-out forwards;
+}
+
+.splash-logo {
+    width: 200px; 
+    animation: logoIntro 2.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes hideSplash {
+    0%, 80% { opacity: 1; visibility: visible; pointer-events: all; }
+    100% { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+
+@keyframes logoIntro {
+    0% { transform: scale(0.6); opacity: 0; }
+    20% { transform: scale(1); opacity: 1; }
+    70% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(3); opacity: 0; }
+}

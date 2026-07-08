@@ -1,19 +1,19 @@
 /* =========================================
    1. POLICES & VARIABLES
    ========================================= */
-@font-face { 
-    font-family: 'Kobe'; 
-    src: url('./font/Kobe-Font/kobe-regular.otf'); 
+@font-face {
+    font-family: 'Kobe';
+    src: url('./font/Kobe-Font/kobe-regular.otf');
 }
-@font-face { 
-    font-family: 'Kobe'; 
-    src: url('./font/Kobe-Font/kobe-bold.otf'); 
-    font-weight: bold; 
+@font-face {
+    font-family: 'Kobe';
+    src: url('./font/Kobe-Font/kobe-bold.otf');
+    font-weight: bold;
 }
-@font-face { 
-    font-family: 'Kobe'; 
-    src: url('./font/Kobe-Font/kobe-black.otf'); 
-    font-weight: 900; 
+@font-face {
+    font-family: 'Kobe';
+    src: url('./font/Kobe-Font/kobe-black.otf');
+    font-weight: 900;
 }
 
 :root { 
@@ -139,9 +139,58 @@ body { font-family: 'Kobe', sans-serif; color: var(--text-dark); background: var
 /* =========================================
    5. HERO BANNER
    ========================================= */
-.hero { height: 60vh; background: url('https://images.unsplash.com/photo-1490818387583-1b5ba45227fa?auto=format&fit=crop&w=1500') no-repeat center center; background-attachment: fixed; background-size: cover; display: flex; align-items: center; justify-content: center; position: relative; }
-.hero::before { content: ''; position: absolute; inset: 0; background: rgba(229, 228, 211, 0.5); }
+.hero { height: 60vh; background: url('photos/pancake-fraise-duo.jpg') no-repeat center 25%; background-attachment: fixed; background-size: cover; display: flex; align-items: center; justify-content: center; position: relative; }
+.hero::before { content: ''; position: absolute; inset: 0; background: rgba(229, 228, 211, 0.55); }
 .hero h1 { position: relative; font-size: 4rem; font-weight: 900; line-height: 0.9; text-align: center; color: var(--text-dark); }
+.hero-tagline { position: relative; text-align: center; margin-top: 18px; font-size: 1.1rem; font-weight: bold; letter-spacing: 3px; text-transform: uppercase; color: var(--accent-pourpre); }
+
+/* =========================================
+   5bis. BANDEAU PHOTOS DÉFILANT
+   ========================================= */
+.photo-marquee-section {
+    padding: 30px 0;
+    overflow: hidden;
+    background: var(--bg-beige);
+    position: relative;
+    z-index: 1;
+}
+.marquee-row {
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+.marquee-row:last-child { margin-bottom: 0; }
+.marquee-track {
+    display: flex;
+    gap: 16px;
+    width: max-content;
+    animation: marqueeLeft 50s linear infinite;
+}
+.marquee-track-reverse {
+    animation: marqueeRight 55s linear infinite;
+}
+.marquee-track img {
+    height: 200px;
+    width: 160px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+.marquee-track img:hover {
+    transform: scale(1.05) rotate(-1deg);
+}
+.marquee-row:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+@keyframes marqueeLeft {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+@keyframes marqueeRight {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+}
 
 /* =========================================
    6. SECTIONS GÉNÉRALES
@@ -258,6 +307,88 @@ h2 { font-size: 3rem; margin-bottom: 40px; text-transform: uppercase; font-weigh
     font-weight: 900;
 }
 
+/* ENCART FORMULE BRUNCH */
+.formule-brunch-card {
+    max-width: 900px;
+    margin: 0 auto 50px;
+    background: white;
+    color: var(--text-dark);
+    border-radius: 40px;
+    padding: 35px 40px;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+.formule-badge {
+    position: absolute;
+    top: -25px;
+    right: 30px;
+    background: var(--accent-vert);
+    color: var(--text-dark);
+    font-weight: 900;
+    font-size: 1.4rem;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    transform: rotate(-8deg);
+}
+.formule-brunch-card h3 {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: var(--accent-pourpre);
+    text-align: left;
+}
+.formule-brunch-card h3 small {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: none;
+    color: var(--text-dark);
+    opacity: 0.7;
+    margin-top: 5px;
+}
+.formule-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    text-align: left;
+}
+.formule-grid > div {
+    flex: 1;
+    min-width: 200px;
+    font-weight: bold;
+    font-size: 1.05rem;
+}
+.formule-label {
+    display: block;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    color: var(--accent-pourpre);
+    margin-bottom: 6px;
+}
+
+/* NOTES DE MENU */
+.menu-note {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    font-style: italic;
+    opacity: 0.85;
+}
+.menu-footer-note {
+    max-width: 900px;
+    margin: 30px auto 0;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    font-style: italic;
+    text-align: center;
+}
+
 /* =========================================
    8. CONTACT & MAPS
    ========================================= */
@@ -267,71 +398,42 @@ h2 { font-size: 3rem; margin-bottom: 40px; text-transform: uppercase; font-weigh
 .map-container { max-width: 900px; margin: 30px auto; border-radius: 25px; overflow: hidden; border: 3px solid var(--text-dark); }
 
 /* =========================================
-   9. LES COPAINS (DESIGN "PILULE" PREMIUM)
+   9. GALERIE PHOTOS
    ========================================= */
-.copains-container { 
-    display: flex; 
-    justify-content: center; 
-    gap: 20px; 
-    flex-wrap: wrap; 
-    max-width: 1000px;
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-.copain-pill { 
-    display: flex; 
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 260px;
-    height: 110px;
-    background: transparent; 
-    border: 2px solid var(--accent-pourpre); 
-    border-radius: 60px; 
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-    cursor: pointer;
-    position: relative;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+.gallery-item {
+    aspect-ratio: 4 / 5;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.08);
 }
 
-.copain-pill:hover { 
-    background: var(--accent-pourpre); 
-    transform: translateY(-8px) scale(1.02); 
-    box-shadow: 0 15px 25px rgba(106, 78, 122, 0.3); 
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
 }
 
-.copain-role { 
-    font-size: 0.75rem; 
-    font-weight: bold; 
-    color: var(--accent-pourpre); 
-    text-transform: uppercase; 
-    letter-spacing: 2px;
-    margin-bottom: 5px;
-    transition: 0.3s;
-}
-
-.copain-pill:hover .copain-role { 
-    color: var(--bg-beige); 
-}
-
-.copain-name { 
-    font-weight: 900; 
-    font-size: 1.4rem; 
-    text-transform: uppercase;
-    color: var(--text-dark);
-    transition: 0.3s;
-}
-
-.copain-pill:hover .copain-name {
-    color: white;
+.gallery-item:hover img {
+    transform: scale(1.08);
 }
 
 /* =========================================
    10. MOBILE (RESPONSIVE)
    ========================================= */
 @media (max-width: 768px) { 
-    .hero h1 { font-size: 2.5rem; } 
-    h2 { font-size: 2rem; } 
+    .hero h1 { font-size: 2.2rem; }
+    .hero-tagline { font-size: 0.85rem; letter-spacing: 2px; }
+    h2 { font-size: 2rem; }
     
     /* Ajustement de la navbar sur mobile */
     .nav-links { gap: 15px; flex-wrap: wrap; }
@@ -345,6 +447,16 @@ h2 { font-size: 3rem; margin-bottom: 40px; text-transform: uppercase; font-weigh
     .copain-pill { width: 45%; height: 90px; border-radius: 50px;}
     .copain-name { font-size: 1.1rem;}
     .copain-role { font-size: 0.65rem;}
+
+    .formule-brunch-card { padding: 30px 25px; border-radius: 30px; }
+    .formule-badge { width: 55px; height: 55px; font-size: 1.1rem; top: -20px; right: 20px; }
+    .formule-brunch-card h3 { font-size: 1.4rem; }
+
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .gallery-item { border-radius: 18px; }
+
+    .marquee-track img { height: 130px; width: 105px; border-radius: 14px; }
+    .marquee-row { margin-bottom: 10px; }
 }
 
 /* =========================================

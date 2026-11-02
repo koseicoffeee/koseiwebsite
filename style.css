@@ -506,3 +506,9 @@ h2 { font-size: 3rem; margin-bottom: 40px; text-transform: uppercase; font-weigh
     70% { transform: scale(1.05); opacity: 1; }
     100% { transform: scale(3); opacity: 0; }
 }
+/* FORMULES (côte à côte) + coups de cœur */
+.formules-row { display: flex; flex-wrap: wrap; gap: 40px; max-width: 1100px; margin: 0 auto 50px; }
+.formules-row .formule-brunch-card { flex: 1; min-width: 280px; margin: 0; }
+.fav { color: var(--accent-pourpre); font-weight: 900; margin-left: 4px; }
+.menu-item .fav, .menu-footer-note .fav { color: inherit; }
+.menu-subtitle small { text-transform: none; font-weight: normal; font-size: 0.8rem; }

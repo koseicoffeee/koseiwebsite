@@ -7,7 +7,7 @@
     
     <title>Kōsei | Brunch & Fluffy Pancakes à Marseille - Café de Spécialité</title>
 
-    <meta name="description" content="Le meilleur brunch à Marseille et les fluffy pancakes les plus moelleux de la ville, faits minute au 11 rue Haxo. Café de spécialité Belgrain, smoothies, jus pressés. Ouvert 7j/7 de 9h30 à 19h30.">
+    <meta name="description" content="Le meilleur brunch à Marseille et les fluffy pancakes les plus moelleux de la ville, faits minute au 11 rue Haxo. Café de spécialité Belgrain, smoothies, jus pressés. Ouvert 7j/7 : 10h-18h30 en semaine, 9h-19h30 le week-end.">
 
     <meta name="keywords" content="brunch Marseille, fluffy pancakes Marseille, fluffy Marseille, pancakes soufflés Marseille, café de spécialité Marseille, coffee shop Marseille, restaurant sain Marseille, rue Haxo, Kōsei">
     <meta name="robots" content="index, follow">
@@ -51,12 +51,20 @@
             "latitude": 43.2965415,
             "longitude": 5.3742456
         },
-        "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-            "opens": "09:30",
-            "closes": "19:30"
-        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "10:00",
+                "closes": "18:30"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Saturday", "Sunday"],
+                "opens": "09:00",
+                "closes": "19:30"
+            }
+        ],
         "hasMenu": "https://koseiwebsite-didb.vercel.app/#menu",
         "sameAs": ["https://www.instagram.com/kosei.marseille/"]
     }
@@ -96,7 +104,7 @@
                 "name": "Quels sont les horaires d'ouverture de Kōsei à Marseille ?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Kōsei est ouvert 7 jours sur 7, de 9h30 à 19h30, au 11 rue Haxo à Marseille (13001)."
+                    "text": "Kōsei est ouvert 7 jours sur 7 : de 10h à 18h30 en semaine et de 9h à 19h30 le week-end, au 11 rue Haxo à Marseille (13001)."
                 }
             },
             {
@@ -104,7 +112,7 @@
                 "name": "Où se trouve Kōsei à Marseille ?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Kōsei se trouve au 11 rue Haxo, 13001 Marseille, ouvert 7j/7 de 9h30 à 19h30."
+                    "text": "Kōsei se trouve au 11 rue Haxo, 13001 Marseille, ouvert 7j/7 (10h-18h30 en semaine, 9h-19h30 le week-end)."
                 }
             }
         ]
@@ -402,13 +410,13 @@
             <details class="menu-accordion">
                 <summary>Quels sont les horaires d'ouverture de Kōsei à Marseille ?</summary>
                 <div class="accordion-content">
-                    <p>Kōsei est ouvert 7 jours sur 7, de 9h30 à 19h30, au 11 rue Haxo à Marseille (13001).</p>
+                    <p>Kōsei est ouvert 7 jours sur 7 : de 10h à 18h30 en semaine et de 9h à 19h30 le week-end, au 11 rue Haxo à Marseille (13001).</p>
                 </div>
             </details>
             <details class="menu-accordion">
                 <summary>Où se trouve Kōsei à Marseille ?</summary>
                 <div class="accordion-content">
-                    <p>Kōsei se trouve au 11 rue Haxo, 13001 Marseille, ouvert 7j/7 de 9h30 à 19h30.</p>
+                    <p>Kōsei se trouve au 11 rue Haxo, 13001 Marseille, ouvert 7j/7 (10h-18h30 en semaine, 9h-19h30 le week-end).</p>
                 </div>
             </details>
         </div>
@@ -418,7 +426,7 @@
         <h2>Nous trouver</h2>
         <div class="text-container" style="margin-bottom: 40px;">
             <p><strong>Kōsei Marseille</strong><br>11 RUE HAXO, 13001 MARSEILLE</p>
-            <p class="opening-soon">OUVERT 7 JOURS SUR 7 · 9H30 - 19H30</p>
+            <p class="opening-soon">OUVERT 7 JOURS SUR 7<br>SEMAINE · 10H - 18H30<br>WEEK-END · 9H - 19H30</p>
             <a href="https://www.instagram.com/kosei.marseille/" target="_blank" rel="noopener noreferrer" class="insta-link">@kosei.marseille</a>
         </div>
         <div class="map-container">

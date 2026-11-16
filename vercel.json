@@ -1,4 +1,12 @@
 {
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "koseiwebsite-didb.vercel.app" }],
+      "destination": "https://koseimarseille.fr/$1",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)\\.(png|css)",
